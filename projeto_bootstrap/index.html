@@ -1,0 +1,235 @@
+<!--
+componentes da pagina principal:
+navbar no topo
+carousel com imagens dos filmes
+dropdown no titulo dos filmes
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <link href="assets/css/bootstrap.css" rel="stylesheet">
+   <link href="assets/css/all.css" rel="stylesheet">
+   <link href="assets/css/styles.css" rel="stylesheet">
+   <title>Bootstrap</title>
+</head>
+
+<body>
+   
+
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">🎬 CineTop</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto align-items-center">
+            <li class="nav-item"><a class="nav-link" href="index.html">Programação</a></li>
+            <li class="nav-item"><a class="nav-link" href="filmes.html">Filmes em Cartaz</a></li>
+            <li class="nav-item"><a class="nav-link" href="embreve.html">Em Breve</a></li>
+            <li class="nav-item"><a class="nav-link" href="cinetop.html">Clube Top</a></li>
+          </ul>
+        </div>
+        <span class="navbar-text text-white ms-auto me-0 pe-0">
+         Nome: Fillipi Monteiro Cunha
+       </span>
+      </div>
+    </nav>
+
+    <style>     
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .carousel-item img {
+         width: 100%;
+         height: 650px;     
+        object-fit: cover;
+      }
+    </style>
+
+   <div id="carousel-id" class="carousel slide d-none d-md-block mb-4"
+   style="margin-top: 0px;" data-bs-ride="carousel" data-bs-interval="3000">
+
+   <ol class="carousel-indicators">
+   <li data-bs-target="#carousel-id" data-bs-slide-to="0" class="active"></li>
+   <li data-bs-target="#carousel-id" data-bs-slide-to="1"></li>
+   <li data-bs-target="#carousel-id" data-bs-slide-to="2"></li>
+   <li data-bs-target="#carousel-id" data-bs-slide-to="3"></li>
+   <li data-bs-target="#carousel-id" data-bs-slide-to="4"></li>
+   </ol>  
+
+   <div class="carousel-inner">
+   <style>
+      .carousel-caption .texto-1 {
+         font-weight: bold;    
+         font-size: 2rem;     
+         color: white;        
+         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+      }
+      </style>
+
+   <div class="carousel-item active">
+   <img src="assets/images/pecadores.jpg" class="d-block w-100">
+   <div class="carousel-caption">
+      <div class="text-center">
+         <a href="filmes.html" class="text-decoration-none">
+            <span class="texto-1 text-white">Pecadores</span>
+          </a>  
+      </div>
+   </div>
+   </div>
+
+   <div class="carousel-item">
+   <img src="assets/images/untildawn.jpg" class="d-block w-100">
+   <div class="carousel-caption">
+      <div class="text-center">
+         <a href="filmes.html" class="text-decoration-none">
+            <span class="texto-1 text-white">Untildawn</span>
+          </a>  
+      </div>
+   </div>
+   </div>
+
+   <div class="carousel-item">
+   <img src="assets/images/minecraft.jpg" class="d-block w-100">
+   <div class="carousel-caption">
+      <div class="text-center">
+         <a href="filmes.html" class="text-decoration-none">
+            <span class="texto-1 text-white">Minecraft</span>
+          </a>  
+      </div>
+   </div>
+   </div>
+
+   <div class="carousel-item">
+   <img src="assets/images/branca.jpg" class="d-block w-100">
+   <div class="carousel-caption">
+      <div class="text-center">
+         <a href="filmes.html" class="text-decoration-none">
+            <span class="texto-1 text-white">Branca de Neve (2025)</span>
+          </a>  
+      </div>
+   </div>
+   </div>
+
+   <div class="carousel-item">
+   <img src="assets/images/thunderbolts.jpg" class="d-block w-100">
+   <div class="carousel-caption">
+      <div class="text-center">
+         <a href="filmes.html" class="text-decoration-none">
+            <span class="texto-1 text-white">Thunderbolts</span>
+          </a>  
+      </div>
+   </div>
+   </div>
+   </div>
+
+   <a href="#carousel-id" class="carousel-control-prev" role="button" data-bs-slide="prev">
+   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+   <span class="visually-hidden">Anterior</span>
+   </a>
+
+   <a href="#carousel-id" class="carousel-control-next" role="button" data-bs-slide="next">
+   <span class="carousel-control-next-icon" aria-hidden="true"></span>
+   <span class="visually-hidden">Próximo</span>
+   </a>
+   </div>
+  
+
+ <div class="programacao">
+   <h2>Programação do dia</h2>
+   <div class="filmes">
+
+    
+    <div class="filme mb-3">
+      <div class="dropdown hover-dropdown">
+         <button class="btn dropdown-toggle border-0 shadow-none bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.5rem; font-weight: bold; color: #000;">
+           Minecraft
+         </button>
+          <ul class="dropdown-menu">
+            <li><span class="dropdown-item-text">Gênero: Aventura</span></li>
+            <li><span class="dropdown-item-text">Classificação: Livre</span></li>
+            <li><span class="dropdown-item-text">Duração: 1h 45min</span></li>
+          </ul>
+      </div>
+
+      <span class="horario">Sala 1 • 18:00 • Dublado   </span>
+      <span class="horario">Sala 2 • 21:00 • Dublado   </span>
+    </div>
+
+   
+     <div class="filme mb-3">
+      <div class="dropdown hover-dropdown">
+         <button class="btn dropdown-toggle border-0 shadow-none bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.5rem; font-weight: bold; color: #000;">
+           Branca de Neve (2025)
+         </button>
+          <ul class="dropdown-menu">
+            <li><span class="dropdown-item-text">Gênero: Infantil</span></li>
+            <li><span class="dropdown-item-text">Classificação: 10 anos</span></li>
+            <li><span class="dropdown-item-text">Duração: 1h 30min</span></li>
+          </ul>
+      </div>
+       <span class="horario">Sala 1 • 20:30 • Legendado  </span>
+       <span class="horario">Sala 3 • 22:10 • Dublado  </span>
+     </div>
+
+     
+     <div class="filme mb-3">
+      <div class="dropdown hover-dropdown">
+         <button class="btn dropdown-toggle border-0 shadow-none bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.5rem; font-weight: bold; color: #000;">
+           Untildawn
+         </button>
+          <ul class="dropdown-menu">
+            <li><span class="dropdown-item-text">Gênero: Terror/Suspense</span></li>
+            <li><span class="dropdown-item-text">Classificação: 18 anos</span></li>
+            <li><span class="dropdown-item-text">Duração: 2h 15min</span></li>
+          </ul>
+      </div>
+       <span class="horario">Sala 1 • 15:50 • Legendado  </span>
+       <span class="horario">Sala 2 • 23:00 • Legendado  </span>
+     </div>
+
+     
+     <div class="filme mb-3">
+      <div class="dropdown hover-dropdown">
+         <button class="btn dropdown-toggle border-0 shadow-none bg-transparent" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.5rem; font-weight: bold; color: #000;">
+           Thunderbolts
+         </button>
+          <ul class="dropdown-menu">
+            <li><span class="dropdown-item-text">Gênero: Suspense/Ficção</span></li>
+            <li><span class="dropdown-item-text">Classificação: 14 anos</span></li>
+            <li><span class="dropdown-item-text">Duração: 1h 55min</span></li>
+          </ul>
+      </div>
+       <span class="horario">Sala 1 • 23:30 • Dublado  </span>
+     </div>
+
+   </div>
+ </div>
+
+ <br>
+ 
+   <h6 style="margin-left: 40px;">Contato</h6>
+   <ul>
+      <li>CineTop</li>
+      <li>(21) 2104-9802</li>
+      <li><a href="mailto:cinetop@mail.com">cinetop@mail.com</a></li>
+   </ul>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+   <script src="assets/js/script.js"></script>
+   </body>
+
+<!--  
+   <script src="assets/js/jquery-3.3.1.js"></script>
+   <script src="assets/js/popper.js"></script>
+   <script src="assets/js/bootstrap.js"></script>
+   <script src="assets/js/script.js"></script>
+</body>--> 
+
+</html>

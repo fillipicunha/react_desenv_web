@@ -1,0 +1,257 @@
+<!--
+componentes da pagina cinetop:
+navbar no topo
+alert abaixo do titulo da pagina
+card com planos
+dropdwon com opção de plano
+accordion no botao de ver benefícios
+accordion nas perguntas frequentes
+-->
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Filmes em Cartaz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    .btn-white {
+      background-color: rgb(183, 166, 166);
+      color: #020202; 
+      border: 1px solid #dc3545;
+    }
+    .btn-white:hover {
+      background-color: #f8d7da;
+    }
+  </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">🎬 CineTop</a>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Programação</a></li>
+              <li class="nav-item"><a class="nav-link" href="filmes.html">Filmes em Cartaz</a></li>
+              <li class="nav-item"><a class="nav-link" href="embreve.html">Em Breve</a></li>
+              <li class="nav-item"><a class="nav-link" href="cinetop.html">Clube Top</a></li>
+            </ul>
+          </div>
+          <span class="navbar-text text-white ms-auto me-0 pe-0">
+           Nome: Fillipi Monteiro Cunha
+         </span>
+        </div>
+      </nav>
+
+
+        <div class="container my-5">
+        <h2 class="text-center mb-4 fw-bold">Seja Membro do CineTop</h2>
+       
+        <div class="alert alert-danger text-center" role="alert">
+            <strong>Promoção:</strong> Assine até <strong>30/05</strong> e ganhe 1 mês grátis!
+        </div>
+        <div class="row g-4">
+
+      
+                <div class="col-md-4">
+                    <div class="card h-100 plan-card bg-light shadow-sm position-relative">
+                    <div class="card-body d-flex flex-column">
+                
+                        <h5 class="card-title">Plano Básico</h5>
+                
+                        <div class="dropdown mb-3">
+                        <button class="btn btn-outline-danger dropdown-toggle w-100" type="button" id="btnPlano1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Mensal – R$ 29,90
+                        </button>
+                        <ul class="dropdown-menu w-100" aria-labelledby="btnPlano1">
+                            <li><a class="dropdown-item" href="#" onclick="setPlano('btnPlano1', 'Mensal – R$ 29,90')">Mensal – R$ 29,90</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="setPlano('btnPlano1', 'Anual – R$ 319,90')">Anual – R$ 319,90</a></li>
+                        </ul>
+                        </div>
+                
+                        <button class="btn btn-primary mb-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#beneficios1" aria-expanded="false">
+                        Ver Benefícios
+                        </button>
+                        <div class="collapse mb-3" id="beneficios1">
+                        <ul class="small list-unstyled">
+                            <li><i class="bi bi-ticket-perforated-fill mx-2 text-danger"></i>1 ingresso gratuito por mês</li>
+                            <li><i class="bi bi-cup-straw mx-2 text-danger"></i>10% de desconto em pipocas</li>
+                            <li><i class="bi bi-film mx-2 text-danger"></i>Pré-venda exclusiva</li>
+                        </ul>
+                        </div>
+                
+                        <button class="btn btn-danger mt-auto w-100">Comprar</button>
+                
+                    </div>
+                    </div>
+                </div>
+
+       
+        <div class="col-md-4">
+            <div class="card h-100 plan-card bg-secondary text-white shadow-sm">
+            <span class="badge bg-warning text-dark position-absolute top-9 end-0 m-0">Mais Popular</span> 
+            <div class="card-body d-flex flex-column">
+                
+                <h5 class="card-title">Plano Plus</h5>
+
+                <div class="dropdown mb-3">
+                    <button class="btn btn-white dropdown-toggle w-100" type="button" id="btnPlano2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mensal – R$ 49,90
+                      </button>
+                    <ul class="dropdown-menu w-100 bg-white" aria-labelledby="btnPlano1">
+                      <li><a class="dropdown-item" href="#" onclick="setPlano('btnPlano2', 'Mensal – R$ 49,90')">Mensal – R$ 49,90</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="setPlano('btnPlano2', 'Anual – R$ 529,90')">Anual – R$ 529,90</a></li>
+                    </ul>
+                  </div>
+
+
+                <button class="btn btn-primary mb-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#beneficios2" aria-expanded="false">
+                    Ver Benefícios
+                    </button>
+                    <div class="collapse mb-3" id="beneficios2">
+                    <ul class="small list-unstyled">
+                        <li><i class="bi bi-ticket-perforated-fill mx-2 text-danger"></i>2 ingressos gratuitos por mês</li>
+                        <li><i class="bi bi-cup-straw mx-2 text-danger"></i>20% de desconto em alimentos</li>
+                        <li><i class="bi bi-film mx-2 text-danger"></i>Pré-venda exclusiva</li>
+                        <li><i class="bi bi-film mx-2 text-danger"></i>Assentos Premium sem custo extra</li>
+                    </ul>
+                    </div>
+            
+                <button class="btn btn-danger mt-auto w-100">Comprar</button>    
+            </div>
+            </div>
+        </div>
+
+       
+        <div class="col-md-4">
+            <div class="card h-100 plan-card bg-dark text-white shadow-sm">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title">Plano Black</h5>
+
+                <div class="dropdown mb-3">
+                    <button class="btn btn-white dropdown-toggle w-100" type="button" id="btnPlano3" data-bs-toggle="dropdown" aria-expanded="false">
+                        Mensal – R$ 79,90
+                      </button>
+                    <ul class="dropdown-menu w-100 bg-white" aria-labelledby="btnPlano1">
+                      <li><a class="dropdown-item" href="#" onclick="setPlano('btnPlano2', 'Mensal – R$ 49,90')">Mensal – R$ 79,90</a></li>
+                      <li><a class="dropdown-item" href="#" onclick="setPlano('btnPlano2', 'Anual – R$ 529,90')">Anual – R$ 849,90</a></li>
+                    </ul>
+                  </div>
+
+                <button class="btn btn-primary mb-3 w-100" type="button" data-bs-toggle="collapse" data-bs-target="#beneficios3" aria-expanded="false">
+                    Ver Benefícios
+                    </button>
+                    <div class="collapse mb-3" id="beneficios3">
+                    <ul class="small list-unstyled">
+                        <li><i class="bi bi-ticket-perforated-fill mx-2 text-danger"></i>3 ingressos gratuitos por mês</li>
+                        <li><i class="bi bi-cup-straw mx-2 text-danger"></i>30% de desconto em alimentos e bebidas</li>
+                        <li><i class="bi bi-film mx-2 text-danger"></i>Pré-venda exclusiva</li>
+                        <li><i class="bi bi-film mx-2 text-danger"></i>Assentos Premium sem custo extra</li>
+                        <li><i class="bi bi-film mx-2 text-danger"></i>Acesso a salas exclusivas</li>
+                    </ul>
+                    </div>
+            
+                <button class="btn btn-danger mt-auto w-100">Comprar</button>   
+            </div>
+            </div>
+        </div>
+
+        
+        <div class="accordion mt-5" id="faqAccordion">
+            <h3 class="mb-3 mx-2">Perguntas Frequentes:</h3>
+
+            <div class="accordion-item border-0 bg-transparent">
+                <h2 class="accordion-header" id="faqOne">
+                <button 
+                    class="accordion-button bg-transparent border-0 shadow-none text-decoration-underline small ms-1 ps-0"
+                    type="button" 
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#faqCollapseOne"
+                    aria-expanded="true" 
+                    aria-controls="faqCollapseOne"
+                    style="box-shadow: none !important; outline: none !important;">
+                    Posso cancelar a qualquer momento?
+                </button>
+                </h2>
+                <div id="faqCollapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body small mx-2 ps-0">
+                    Sim, você pode cancelar quando quiser sem taxas adicionais.
+                </div>
+                </div>
+            </div>
+          
+            <div class="accordion-item border-0 bg-transparent">
+              <h2 class="accordion-header" id="faqTwo">
+                <button 
+                  class="accordion-button collapsed bg-transparent border-0 shadow-none text-decoration-underline small ms-1 ps-0 outline-0 focus-shadow-none"
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#faqCollapseTwo"
+                  aria-expanded="false" 
+                  aria-controls="faqCollapseTwo"
+                  style="box-shadow: none !important; outline: none !important;">
+                  Os ingressos são acumulativos?
+                </button>
+              </h2>
+              <div id="faqCollapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body  small mx-2 ps-0 ">
+                  Não, os ingressos devem ser utilizados dentro do mês vigente.
+                </div>
+              </div>
+            </div>
+          
+            <div class="accordion-item border-0 bg-transparent">
+              <h2 class="accordion-header" id="faqThree">
+                <button 
+                  class="accordion-button collapsed bg-transparent border-0 shadow-none text-decoration-underline small ms-1 ps-0 outline-0 focus-shadow-none"
+                  type="button" 
+                  data-bs-toggle="collapse" 
+                  data-bs-target="#faqCollapseThree"
+                  aria-expanded="false" 
+                  aria-controls="faqCollapseThree"
+                  style="box-shadow: none !important; outline: none !important;">
+                  Qual a diferença entre os planos?
+                </button>
+              </h2>
+              <div id="faqCollapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body small mx-2 ps-0 ">
+                  Os planos variam na quantidade de ingressos grátis, descontos e acesso antecipado às pré-vendas.
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+ 
+   <h6 style="margin-left: 40px;">Contato</h6>
+   <ul>
+      <li>CineTop</li>
+      <li>(21) 2104-9802</li>
+      <li><a href="mailto:cinetop@mail.com">cinetop@mail.com</a></li>
+   </ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    function setPlano(btnId, texto) {
+      document.getElementById(btnId).textContent = texto;
+    }
+    </script>
+
+    <!--  
+   <script src="assets/js/jquery-3.3.1.js"></script>
+   <script src="assets/js/popper.js"></script>
+   <script src="assets/js/bootstrap.js"></script>
+   <script src="assets/js/script.js"></script>-->
+
+</body>
+
+</html>

@@ -1,0 +1,454 @@
+<!--
+componentes da pagina embreve:
+navbar no topo
+pagination com cada pagina tendo cards de filmes
+modal com o trailer
+accordion no botao de sinopse e elenco
+-->
+
+
+
+
+<!DOCTYPE html>
+<body lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Filmes em Cartaz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/bootstrap.css">
+  <link href="assets/css/styles.css" rel="stylesheet">
+  <style>
+   .pagination .page-link {
+    background-color: #dc3545;
+    color: #fff; 
+    border-color: #dc3545;
+  }
+  .pagination .page-link:hover {
+    background-color: #bb2d3b;
+    border-color: #bb2d3b;
+  }
+  .pagination .page-item.active .page-link {
+    background-color: #a90717;
+    border-color: #6e131c00;
+  }
+  </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">🎬 CineTop</a>
+          <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ms-auto align-items-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Programação</a></li>
+              <li class="nav-item"><a class="nav-link" href="filmes.html">Filmes em Cartaz</a></li>
+              <li class="nav-item"><a class="nav-link" href="embreve.html">Em Breve</a></li>
+              <li class="nav-item"><a class="nav-link" href="cinetop.html">Clube Top</a></li>
+            </ul>
+          </div>
+          <span class="navbar-text text-white ms-auto me-0 pe-0">
+           Nome: Fillipi Monteiro Cunha
+         </span>
+        </div>
+      </nav>
+
+
+      <div class="container mt-5">
+        <h2 class="mb-4 fw-bold">Em Breve no CineTop</h2>
+      
+        <nav aria-label="Paginação dos filmes" class="d-flex justify-content-center mt-4">
+            <ul class="pagination">
+              <li class="page-item active"><a class="page-link" href="#" data-page="1">1</a></li>
+              <li class="page-item"><a class="page-link" href="#" data-page="2">2</a></li>
+            </ul>
+          </nav>
+          <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const movieItems = document.querySelectorAll('.movie-item');
+              const pageLinks = document.querySelectorAll('.page-link');
+          
+              function showPage(page) {
+                movieItems.forEach(item => {
+                  item.style.display = item.dataset.page === page ? 'block' : 'none';
+                });
+          
+                document.querySelectorAll('.page-item').forEach(li => li.classList.remove('active'));
+                document.querySelector(`.page-link[data-page="${page}"]`).parentElement.classList.add('active');
+              }
+          
+              pageLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                  e.preventDefault();
+                  const selectedPage = this.dataset.page;
+                  showPage(selectedPage);
+                });
+              });
+              showPage("1");
+            });
+          </script>
+
+
+        
+        <div class="row" id="moviesContainer">
+   
+          <div class="col-md-4 mb-4 movie-item" data-page="1">
+            <div class="card h-100">
+              <img src="assets/images/confinado.webp" class="card-img-top" alt="Pecadores" style="height: 400px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title">Confinado</h5>
+                <p class="text-muted mb-2" style="font-size: 0.9rem;">Suspense • 110min</p>
+      
+                <div class="mb-3">
+                  <label class="form-label text-muted" style="font-size: 0.8rem;">Estreia em 09/06/2025</label>
+                  <div class="progress" style="height: 6px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 70%;"></div>
+                  </div>
+                </div>
+      
+                <button type="button" class="btn btn-danger btn-sm w-100 text-start" data-bs-toggle="modal" data-bs-target="#trailerModal" 
+                  data-video="https://www.youtube.com/embed/pjz63hdN1NQ" data-title="Confinado">
+                  Ver Trailer
+                </button>
+      
+                <div class="accordion mt-2" id="accordionPecadores">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSinopse1">
+                        Sinopse
+                      </button>
+                    </h2>
+                    <div id="collapseSinopse1" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        Eddie não terá outra saída a não ser tentar sobreviver a um jogo implacável, em que ele e todos à sua volta correm perigo.
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElenco1">
+                        Elenco
+                      </button>
+                    </h2>
+                    <div id="collapseElenco1" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        Bill Skarsgård, Anthony Hopkins, Ashley Cartwright
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+          <div class="col-md-4 mb-4 movie-item" data-page="1">
+            <div class="card h-100">
+              <img src="assets/images/lendaochi.webp" class="card-img-top" alt="lendaochi" style="height: 400px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title">A Lenda de Ochi</h5>
+                <p class="text-muted mb-2" style="font-size: 0.9rem;">Aventura • 125min</p>
+      
+                <div class="mb-3">
+                  <label class="form-label text-muted" style="font-size: 0.8rem;">Estreia em 18/06/2025</label>
+                  <div class="progress" style="height: 6px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 40%;"></div>
+                  </div>
+                </div>
+      
+                <button type="button" class="btn btn-danger btn-sm w-100 text-start" data-bs-toggle="modal" data-bs-target="#trailerModal" 
+                  data-video="https://www.youtube.com/embed/NNBw3efJkWc" data-title="A Lenda de Ochi">
+                  Ver Trailer
+                </button>
+      
+                <div class="accordion mt-2" id="accordionLenda">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSinopse2">
+                        Sinopse
+                      </button>
+                    </h2>
+                    <div id="collapseSinopse2" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        Em uma vila remota na ilha de Carpathia, uma tímida garota de fazenda chamada Yuri foi criada para temer uma espécie animal conhecida como Ochi.
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElenco2">
+                        Elenco
+                      </button>
+                    </h2>
+                    <div id="collapseElenco2" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        Helena Zengel, Finn Wolfhard, Emily Watson
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+          <div class="col-md-4 mb-4 movie-item" data-page="1">
+            <div class="card h-100">
+              <img src="assets/images/esquema.webp" class="card-img-top" alt="O Esquema Fenício" style="height: 400px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title">O Esquema Fenício</h5>
+                <p class="text-muted mb-2" style="font-size: 0.9rem;">Comedia • 90min</p>
+      
+                <div class="mb-3">
+                  <label class="form-label text-muted" style="font-size: 0.8rem;">Estreia em 24/06/2025</label>
+                  <div class="progress" style="height: 6px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 40%;"></div>
+                  </div>
+                </div>
+      
+                <button type="button" class="btn btn-danger btn-sm w-100 text-start" data-bs-toggle="modal" data-bs-target="#trailerModal" 
+                  data-video="https://www.youtube.com/embed/wxidk8ygmBo" data-title="O Esquema Fenício">
+                  Ver Trailer
+                </button>
+      
+                <div class="accordion mt-2" id="accordionEsquema">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSinopse3">
+                        Sinopse
+                      </button>
+                    </h2>
+                    <div id="collapseSinopse3" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        O excêntrico magnata Zsa-zsa Korda já sobreviveu a seis acidentes de avião e é pai de nove filhos homens e uma única menina, a freira Liesl. Ele determina que ela seja a única herdeira de seu patrimônio, mas antes, pede a ajuda da filha para garantir que seu projeto de vida saia do papel, o "Korda Land and Sea Phoenician Infrasctructure Scheme". 
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElenco3">
+                        Elenco
+                      </button>
+                    </h2>
+                    <div id="collapseElenco3" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        Benicio Del Toro, Mia Threapleton, Michael Cera
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-4 mb-4 movie-item" data-page="2">
+            <div class="card h-100">
+              <img src="assets/images/refugio.webp" class="card-img-top" alt="refugio" style="height: 400px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title">O Refúgio</h5>
+                <p class="text-muted mb-2" style="font-size: 0.9rem;">Drama • 130min</p>
+      
+                <div class="mb-3">
+                  <label class="form-label text-muted" style="font-size: 0.8rem;">Estreia em 02/07/2025</label>
+                  <div class="progress" style="height: 6px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 40%;"></div>
+                  </div>
+                </div>
+      
+                <button type="button" class="btn btn-danger btn-sm w-100 text-start" data-bs-toggle="modal" data-bs-target="#trailerModal" 
+                  data-video="https://www.youtube.com/embed/1OHT-jTGlUU" data-title="O Refúgio">
+                  Ver Trailer
+                </button>
+      
+                <div class="accordion mt-2" id="accordionRefugio">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSinopse4">
+                        Sinopse
+                      </button>
+                    </h2>
+                    <div id="collapseSinopse4" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        O filme mostra como uma família sobrevive após um cenário pós-apocalíptico. Jeff Eriksson tem que proteger sua família enquanto trabalha como chefe de segurança. 
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElenco4">
+                        Elenco
+                      </button>
+                    </h2>
+                    <div id="collapseElenco4" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        Neal McDonough, Dawn Olivieri, Bailey Chase
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
+          <div class="col-md-4 mb-4 movie-item" data-page="2">
+            <div class="card h-100">
+              <img src="assets/images/june.webp" class="card-img-top" alt="june" style="height: 400px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title">June e John</h5>
+                <p class="text-muted mb-2" style="font-size: 0.9rem;">Comedia • 95min</p>
+      
+                <div class="mb-3">
+                  <label class="form-label text-muted" style="font-size: 0.8rem;">Estreia em 12/07/2025</label>
+                  <div class="progress" style="height: 6px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 40%;"></div>
+                  </div>
+                </div>
+      
+                <button type="button" class="btn btn-danger btn-sm w-100 text-start" data-bs-toggle="modal" data-bs-target="#trailerModal" 
+                  data-video="https://www.youtube.com/embed/RhQHQPci6WM" data-title="June e John ">
+                  Ver Trailer
+                </button>
+      
+                <div class="accordion mt-2" id="accordionJune">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSinopse5">
+                        Sinopse
+                      </button>
+                    </h2>
+                    <div id="collapseSinopse5" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        A trama de JUNE E JOHN segue John (Eddy), um homem comum cuja vida é marcada pela monotonia. Tudo muda quando ele conhece June (Price), uma mulher enigmática que rouba sua atenção.
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElenco5">
+                        Elenco
+                      </button>
+                    </h2>
+                    <div id="collapseElenco5" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        Don Scribner, Honey Lauren, Brandon Delsid
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-md-4 mb-4 movie-item" data-page="2">
+            <div class="card h-100">
+              <img src="assets/images/megan.webp" class="card-img-top" alt="megan" style="height: 400px; object-fit: cover;">
+              <div class="card-body">
+                <h5 class="card-title">M3gan 2.0</h5>
+                <p class="text-muted mb-2" style="font-size: 0.9rem;">Terror • 110min</p>
+      
+                <div class="mb-3">
+                  <label class="form-label text-muted" style="font-size: 0.8rem;">Estreia em 24/07/2025</label>
+                  <div class="progress" style="height: 6px;">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 40%;"></div>
+                  </div>
+                </div>
+      
+                <button type="button" class="btn btn-danger btn-sm w-100 text-start" data-bs-toggle="modal" data-bs-target="#trailerModal" 
+                  data-video="https://www.youtube.com/embed/IYLHdEzsk1s" data-title="M3gan 2.0">
+                  Ver Trailer
+                </button>
+      
+                <div class="accordion mt-2" id="accordionMegan">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSinopse6">
+                        Sinopse
+                      </button>
+                    </h2>
+                    <div id="collapseSinopse6" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        Uma arma robótica de nível militar conhecida como Amelia torna-se cada vez mais autoconsciente e perigosa para a raça humana. Na esperança de detê-la, Gemma decide ressuscitar M3GAN, tornando-a mais rápida, forte e letal.
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="btn btn-danger btn-sm w-100 text-start" type="button" data-bs-toggle="collapse" data-bs-target="#collapseElenco6">
+                        Elenco
+                      </button>
+                    </h2>
+                    <div id="collapseElenco6" class="accordion-collapse collapse">
+                      <div class="accordion-body text-muted" style="font-size: 0.9rem;">
+                        Allison Williams, Violet McGraw, Brian Jordan Alvarez
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="modal fade" id="trailerModal" tabindex="-1" aria-labelledby="trailerModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="max-width: 700px;">
+              <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                  <h5 class="modal-title" id="trailerModalLabel">Trailer</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body p-0">
+                  <div class="ratio ratio-16x9">
+                    <iframe id="trailerVideo" src="" title="Trailer" allowfullscreen allow="autoplay"></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <script>
+            const trailerModal = document.getElementById('trailerModal');
+            const trailerVideo = document.getElementById('trailerVideo');
+            const trailerTitle = document.getElementById('trailerModalLabel');
+      
+            trailerModal.addEventListener('show.bs.modal', event => {
+              const button = event.relatedTarget;
+              const videoUrl = button.getAttribute('data-video');
+              const title = button.getAttribute('data-title');
+      
+              trailerVideo.src = videoUrl + '?autoplay=1&rel=0';
+              trailerTitle.textContent = 'Trailer - ' + title;
+            });
+      
+            trailerModal.addEventListener('hidden.bs.modal', () => {
+              trailerVideo.src = '';
+            });
+          </script>
+      
+        </div>
+
+      </div>
+
+      <br>
+ 
+   <h6 style="margin-left: 40px;">Contato</h6>
+   <ul>
+      <li>CineTop</li>
+      <li>(21) 2104-9802</li>
+      <li><a href="mailto:cinetop@mail.com">cinetop@mail.com</a></li>
+   </ul>
+
+    <script src="assets/js/jquery-3.3.1.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+</body>
+</html>
