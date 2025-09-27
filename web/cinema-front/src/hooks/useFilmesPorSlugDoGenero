@@ -1,0 +1,15 @@
+import { useQuery } from "@tanstack/react-query";
+ import useAPIFilme from "./useAPIFilme";
+
+
+const useFilmesPorSlugDoGenero = (slug?: string) => {
+  const { recuperarFilmesPorSlugDoGenero } = useAPIFilme();
+
+  return useQuery({
+    queryKey: slug ? ["filmes", "slugGenero", slug] : ["filmes"],
+    queryFn: () => recuperarFilmesPorSlugDoGenero(slug),
+    staleTime: 10_000,
+  });
+};
+
+export default useFilmesPorSlugDoGenero;

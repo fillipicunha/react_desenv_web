@@ -1,0 +1,5 @@
+export interface Genero {
+  id: number;
+  nome: string;
+  slug?: string;
+}

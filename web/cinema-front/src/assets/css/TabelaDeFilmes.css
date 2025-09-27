@@ -1,0 +1,38 @@
+.table {
+    border-collapse: collapse;
+  }
+  
+  .table th, .table td {
+    vertical-align: middle;
+  }
+  
+  .table th {
+    background-color: #343a40;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .table th span {
+    margin-left: 8px;
+  }
+  
+  .table img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .table-hover tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.075);
+  }
+.a link-underline{
+    color: #eb0505;
+    text-decoration: none;
+}
+
+.a link-underline:hover{
+    color: #337dc2;
+}
